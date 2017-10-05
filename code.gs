@@ -29,6 +29,10 @@ function createMenu(data){
   var price = createDIV(data[3]+"円", "price");
   var url = createDIV(createA(data[4]), "url");
   var des = createDIV(data[5], "description");
+  if(!salebool){
+    sale = "販売休止";
+    url = createDIV("すみません。現在ビットコインで購入できません。", "soldout");
+  }
   var body = sale + recipe + price + des + url;
   return createDIV(body, "menu");
 }
