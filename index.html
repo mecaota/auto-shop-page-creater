@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html　lang="ja">
+  <head>
+    <base target="_top">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>自転車部ビットコイン決済ページ</title>
+  </head>
+  <body>
+    <h1>公立はこだて未来大学　自転車部</h1>
+    <h2>未来祭２０１７模擬店専用　ビットコイン決済ページ</h2>
+    <section>
+      <article>
+        <h3>決済の仕方</h3>
+        <ol>
+          <li>ビットコイン決済したいメニューを選んで、決済ページに進んでください。</li>
+          <li>決済後の受付番号のページを店頭でご提示ください。</li>
+          <li>レジで通常と同じようにレシートと番号札をもらいます。</li>
+          <li>番号札と商品を引き換えます。</li>
+          <li>購入完了！</li>
+         </ol>
+        </article>
+       <article>
+         <h3>注意事項・利用規約</h3>
+         <ul>
+          <li>当ビットコイン決済システムはbitflyer様のbitWire SHOPを使用しています。</li>
+          <li>ビットコイン決済では、システムの都合上1品ずつしか決済できません。</li>
+          <li>原則としてビットコイン決済を利用した場合の返品・キャンセルは受付けておりません。</li>
+          <li>万が一、決済後の商品が品切れとなった場合、別の同額商品や同額相当商品等に替えさせていただきます。</li>
+          <li>システムの都合上、割引特典との併用やセール時の利用は出来ません。もし誤って決済された場合はセール・割引前価格にて販売となります。</li>
+          <li>ビットコイン決済を利用した為に生じた、為替損や各種トラブル等によるビットコイン・金融資産等の損失に関して当方では責任を負いかねます。</li>
+          <li>機材トラブルや通信トラブル、その他トラブル等によりご利用いただけない場合があります。</li>
+          <li>この取組みは公立はこだて未来大学自転車部元部長(初代 神)による独断により試験的に導入されています。</li>
+        </ul>
+        以上、ご了承いただいた上でビットコイン決済の”未来感”と料理をお楽しみください。
+      </article>
+    </section>
+    
+    <section>
+      <h2>メニュー</h2>
+      <div>
+        <?
+          var menu = getInfo();
+          var indexSize = menu[1];
+          menu = menu[0];
+          for(var i=0; i<indexSize; i++){
+            Logger.log(menu[i]);
+            output.append(createMenu(menu[i]) + "<br>");
+          }
+        ?>
+      </div>
+    </section>
+    
+    <section>
+    </section>
+    
+  </body>
+</html>
+
+
