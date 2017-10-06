@@ -6,8 +6,21 @@ function doGet() {
 function getInfo(){
   var ss = SpreadsheetApp.getActiveSheet();
   var maxColumn = ss.getLastColumn();
-  var maxRow = ss.getLastRow();
-  return [ss.getRange(2, 1, maxRow-1, maxColumn).getValues(), maxRow-1];
+  var maxRow = ss.getLastRow()-1;
+  var index = ss.getRange(1, 1, 1, maxColumn).getValues()[0];
+  var data = ss.getRange(2, 1, maxRow, maxColumn).getValues();
+  var result = [];
+  for(var i=0; i<maxRow; i++){
+    var json = new Object();
+    for(var j=0; j<maxColumn; j++){
+      json[index[j]] = data[i][j];
+    }
+    Logger.log(json);
+    result.push(json);
+  }
+  Logger.log(result);
+  
+  return result;
 }
 
 function createDIV(content, class){
@@ -23,13 +36,15 @@ function createA(url){
 }
 
 function createMenu(data){
-  var sale = createDIV(data[0], "sale");
-  var salebool = data[1];
-  var recipe = createDIV(data[2], "recipe");
-  var price = createDIV(data[3]+"円", "price");
-  var url = createDIV(createA(data[4]), "url");
-  var des = createDIV(data[5], "description");
-  if(!salebool){
+  var sale = createDIV(data.sale, "sale");
+  var salefrag = data.salefrag;
+  var recipe = createDIV(data.recipe, "recipe");
+  var price = createDIV(data.price+"円", "price");
+  var url = createDIV(createA(data.url), "url");
+  var des = createDIV(data.description, "description");
+  if(salefrag){
+    sale = "販売中";
+  }else{
     sale = "販売休止";
     url = createDIV("すみません。現在ビットコインで購入できません。", "soldout");
   }
