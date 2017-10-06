@@ -6,8 +6,20 @@ function doGet() {
 function getInfo(){
   var ss = SpreadsheetApp.getActiveSheet();
   var maxColumn = ss.getLastColumn();
-  var maxRow = ss.getLastRow();
-  return [ss.getRange(2, 1, maxRow-1, maxColumn).getValues(), maxRow-1];
+  var maxRow = ss.getLastRow()-1;
+  var index = ss.getRange(1, 1, 1, maxColumn).getValues()[0];
+  var data = ss.getRange(2, 1, maxRow, maxColumn).getValues();
+  var result = [];
+  var json = new Object();
+  for(var i=0; i<maxRow; i++){
+    for(var j=0; j<maxColumn; j++){
+      json[index[j]] = data[i][j];
+    }
+    result.push(json);
+  }
+  Logger.log(result);
+  
+  return [result, maxRow-1];
 }
 
 function createDIV(content, class){
