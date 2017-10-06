@@ -42,10 +42,7 @@
       <div>
         <?
           var menu = getInfo();
-          var indexSize = menu[1];
-          menu = menu[0];
-          for(var i=0; i<indexSize; i++){
-            Logger.log(menu[i]);
+          for(var i=0; i<menu.length; i++){
             output.append(createMenu(menu[i]) + "<br>");
           }
         ?>

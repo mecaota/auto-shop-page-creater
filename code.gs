@@ -19,7 +19,7 @@ function getInfo(){
   }
   Logger.log(result);
   
-  return [result, maxRow-1];
+  return result;
 }
 
 function createDIV(content, class){
