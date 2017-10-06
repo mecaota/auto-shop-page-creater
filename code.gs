@@ -36,7 +36,7 @@ function createA(url){
 }
 
 function createMenu(data){
-  var sale = createDIV(data.sale, "sale");
+  var sale = "";
   var salefrag = data.salefrag;
   var recipe = createDIV(data.recipe, "recipe");
   var price = createDIV(data.price+"円", "price");
