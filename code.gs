@@ -15,11 +15,8 @@ function getInfo(){
     for(var j=0; j<maxColumn; j++){
       json[index[j]] = data[i][j];
     }
-    Logger.log(json);
     result.push(json);
   }
-  Logger.log(result);
-  
   return result;
 }
 
@@ -29,10 +26,10 @@ function createDIV(content, class){
   return div_f + content + div_r;
 }
 
-function createA(url){
+function createA(url, body){
   var a_f = "<a href='" + url + "'>";
   var a_r = "</a>";
-  return a_f + url + a_r;
+  return a_f + body + a_r;
 }
 
 function createMenu(data){
@@ -40,14 +37,16 @@ function createMenu(data){
   var salefrag = data.salefrag;
   var recipe = createDIV(data.recipe, "recipe");
   var price = createDIV(data.price+"円", "price");
-  var url = createDIV(createA(data.url), "url");
+  var url = createDIV(createA(data.url, "購入はこちら"), "url");
   var des = createDIV(data.description, "description");
+  var class = "menu";
   if(salefrag){
-    sale = "販売中";
   }else{
-    sale = "販売休止";
-    url = createDIV("すみません。現在ビットコインで購入できません。", "soldout");
+    url = createDIV("販売休止", "url");
+    sale = createDIV("すみません。現在ビットコインで購入できません。", "sale");
+    class = "menu soldout"
   }
   var body = sale + recipe + price + des + url;
-  return createDIV(body, "menu");
+  body = createDIV(body, class);
+  return body;
 }
