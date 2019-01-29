@@ -33,17 +33,23 @@ function createA(url, body){
 }
 
 function createMenu(data){
+  var body;
   var sale = "";
   var salefrag = data.salefrag;
   var recipe = createDIV(data.recipe, "recipe");
   var price = createDIV(data.price+"円", "price");
-  var url = createDIV(createA(data.url, "購入はこちら"), "url");
+  var url = "";
+  if(data.bitcoin_url){
+    url += createDIV(createA(data.bitcoin_url, "ビットコインで購入"), "url");
+  }
+  if(data.paymo_url){
+    url += createDIV(createA(data.paymo_url, "paymoで購入"), "url");
+  }
   var des = createDIV(data.description, "description");
   var class = "menu";
-  if(salefrag){
-  }else{
+  if(!salefrag){
     url = createDIV("販売休止", "url");
-    sale = createDIV("すみません。現在ビットコインで購入できません。", "sale");
+    sale = createDIV("すみません。現在購入できません。", "sale");
     class = "menu soldout"
   }
   var body = sale + recipe + price + des + url;
