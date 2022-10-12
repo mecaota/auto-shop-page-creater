@@ -16,3 +16,7 @@ tips: "bitcoin_url" and "paymo_url" is your url for purchaser. Please set yourse
 JP) メニューバー > ツール > スクリプトエディタ
 
 4. Copy and Paste this Code.gs.
+
+# Example
+
+https://youtu.be/pdOoAb6vK_w
