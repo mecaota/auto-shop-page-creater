@@ -21,13 +21,13 @@ function getInfo() {
 }
 
 function createDIV(content, className) {
-  const div_f = "<div class='" + className + "'>";
+  const div_f = `<div class="${className}">`;
   const div_r = "</div>";
   return div_f + content + div_r;
 }
 
 function createA(url, body) {
-  const a_f = "<a href='" + url + "'>";
+  const a_f = `<a href="${url}">`;
   const a_r = "</a>";
   return a_f + body + a_r;
 }
@@ -37,7 +37,7 @@ function createMenu(data) {
   let sale = "";
   const salefrag = data.salefrag;
   const recipe = createDIV(data.recipe, "recipe");
-  const price = createDIV(data.price + "円", "price");
+  const price = createDIV(`${data.price}円`, "price");
   let url = "";
   if (data.bitcoin_url) {
     url += createDIV(createA(data.bitcoin_url, "ビットコインで購入"), "url");
