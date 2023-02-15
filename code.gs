@@ -46,7 +46,7 @@ function createMenu(data) {
     url += createDIV(createA(data.paymo_url, "paymoで購入"), "url");
   }
   const des = createDIV(data.description, "description");
-  const className = "menu";
+  let className = "menu";
   if (!salefrag) {
     url = createDIV("販売休止", "url");
     sale = createDIV("すみません。現在購入できません。", "sale");
