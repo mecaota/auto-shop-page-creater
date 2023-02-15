@@ -1,7 +1,7 @@
 function fetchbitwire(url) {
   const ordercode = "PAP20171006-042311-000025";
   // const ordercode = getOrdercode(url);
-  const url = "https://bitflyer.jp/EasyPay/" + ordercode;
+  const resultUrl = "https://bitflyer.jp/EasyPay/" + ordercode;
   const response = UrlFetchApp.fetch(url).getContentText();
   Logger.log(response);
 }
